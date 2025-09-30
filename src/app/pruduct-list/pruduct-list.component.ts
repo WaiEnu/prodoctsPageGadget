@@ -12,6 +12,9 @@ export class ProductListComponent {
   products = [...products];
 
   share() {
-    window.alert('The product has been shared!');
+    window.alert('商品がシェアされました！');
+  }
+  notify() {
+    window.alert('この商品が入荷されたら通知します');
   }
 }

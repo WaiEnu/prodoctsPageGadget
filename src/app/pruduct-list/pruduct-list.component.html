@@ -1,5 +1,14 @@
 <div *ngFor = "let product of products">
-    <h1>product.name</h1>
-    <h2>product.price</h2>
-    <p>product.description</p>
+    <h1>
+        <a [title]="product.name +' 詳細'">{{product.name}}</a>
+    </h1>
+    <h2>価格：{{product.price}}</h2>
+    <h3>
+        
+        <span *ngIf = "product.stock===0; else notZero">在庫なし</span>
+        <ng-template #notZero>在庫：{{product.stock}}</ng-template>
+    </h3>
+    <p>{{product.description}}</p>
+    <button (click)="share()">シェア</button>
+    <app-product-alert [name]="product.name" (notify)="notify()"></app-product-alert>
 </div>
